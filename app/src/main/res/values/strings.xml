@@ -1,3 +1,8 @@
 <resources>
     <string name = "app_name">Coala</string>
+
+    <!--bottom  navigation-->
+    <string name = "title_home">Home</string>
+    <string name = "title_question">나의 질문</string>
+    <string name = "title_answer">나의 답변</string>
 </resources>
