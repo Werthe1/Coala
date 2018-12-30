@@ -2,13 +2,15 @@ package space.jiyun.coala
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import space.jiyun.coala.databinding.MainActivityBinding
-import space.jiyun.coala.ui.home.HomeFragment
+import space.jiyun.coala.util.setupActionBar
 
 class MainActivity : AppCompatActivity(), MainNavigator {
 
-    private lateinit var binding : MainActivityBinding
+    private lateinit var binding: MainActivityBinding
 
     private val mViewModel = MainActViewModel(this)
 
@@ -18,12 +20,27 @@ class MainActivity : AppCompatActivity(), MainNavigator {
 
         binding.viewmodel = mViewModel
 
-
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, HomeFragment.newInstance())
-                    .commitNow()
+        setupActionBar(R.id.toolbar_main) {
+            setDisplayShowTitleEnabled(false)
+            elevation = 4f
         }
     }
+
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu_main, menu)
+        return true
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+            when (item.itemId) {
+                R.id.menu_mypage -> {
+                    //Go to MyPage
+                    true
+                }
+                else -> super.onOptionsItemSelected(item)
+            }
+
 }
 
