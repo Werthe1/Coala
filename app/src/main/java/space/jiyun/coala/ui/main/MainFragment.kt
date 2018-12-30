@@ -1,18 +1,14 @@
 package space.jiyun.coala.ui.main
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import space.jiyun.coala.R
 
-class MainFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
+class MainFragment : androidx.fragment.app.Fragment() {
 
     private lateinit var viewModel: MainViewModel
 
@@ -27,4 +23,7 @@ class MainFragment : Fragment() {
 
     }
 
+    companion object {
+        fun newInstance() = MainFragment()
+    }
 }
