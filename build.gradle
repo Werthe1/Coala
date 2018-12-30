@@ -8,13 +8,16 @@ ext {
     buildToolsVersion='28.0.3'
 
     //App dependencies
-    supportLibraryVersion='28.0.0'
+    androidXVersion='1.1.0-alpha01'
     junitVersion='4.12'
-    runnerVersion='1.0.2'
-    espressoVersion='3.0.2'
+    runnerVersion='1.1.1'
+    espressoVersion='3.1.1'
 
     //Architecture components dependencies
-    archLifecycleVersion='1.1.1'
+    archLifecycleVersion='2.1.0-alpha01'
+
+    //ktx
+    ktxVersion='1.1.0-alpha03'
 
     //rx
     rxjavaVersion='2.2.4'
