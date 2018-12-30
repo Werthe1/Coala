@@ -4,14 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import space.jiyun.coala.databinding.MainActivityBinding
+import space.jiyun.coala.ui.home.HomeFragment
 
-import space.jiyun.coala.ui.main.MainFragment
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainNavigator {
 
     private lateinit var binding : MainActivityBinding
 
-    private val mViewModel = MainActViewModel()
+    private val mViewModel = MainActViewModel(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,9 +21,9 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
+                    .replace(R.id.container, HomeFragment.newInstance())
                     .commitNow()
         }
     }
-
 }
+
