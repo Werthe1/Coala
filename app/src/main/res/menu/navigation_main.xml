@@ -2,7 +2,7 @@
 <menu xmlns:android = "http://schemas.android.com/apk/res/android">
 
     <item
-        android:id = "@+id/navigation_dashboard"
+        android:id = "@+id/navigation_myquestion"
         android:icon = "@drawable/ic_myquestion_24dp"
         android:title = "@string/title_question"
         />
@@ -14,7 +14,7 @@
         />
 
     <item
-        android:id = "@+id/navigation_notifications"
+        android:id = "@+id/navigation_myanswer"
         android:icon = "@drawable/ic_myanswer_24dp"
         android:title = "@string/title_answer"
         />
