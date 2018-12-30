@@ -1,11 +1,13 @@
 package space.jiyun.coala
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import space.jiyun.coala.databinding.MainActivityBinding
+import space.jiyun.coala.ui.mypage.MyPageActivity
 import space.jiyun.coala.util.setupActionBar
 
 class MainActivity : AppCompatActivity(), MainNavigator {
@@ -36,7 +38,7 @@ class MainActivity : AppCompatActivity(), MainNavigator {
     override fun onOptionsItemSelected(item: MenuItem): Boolean =
             when (item.itemId) {
                 R.id.menu_mypage -> {
-                    //Go to MyPage
+                    startActivity(Intent(this, MyPageActivity::class.java))
                     true
                 }
                 else -> super.onOptionsItemSelected(item)
