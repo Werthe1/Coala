@@ -27,21 +27,34 @@ fun setSelectedItemPosition(view : BottomNavigationView, @IdRes itemId : Int) {
         )
 )
 
-class MainActViewModel : ViewModel() {
+
+
+class MainActViewModel(private val navigator: MainNavigator) : ViewModel() {
 
     fun onNavigationItemClicked(item: MenuItem): Boolean =
             when (item.itemId) {
                 R.id.navigation_myquestion -> {
+                   replaceFragment(QuestionFragment.newInstance())
                     true
                 }
                 R.id.navigation_home -> {
+                    replaceFragment(HomeFragment.newInstance())
                     true
                 }
                 R.id.navigation_myanswer -> {
+                    replaceFragment(AnswerFragment.newInstance())
                     true
                 }
-                else -> {
-                    true
-                }
+               else -> {
+                   false
+               }
             }
+
+
+    private fun replaceFragment(fragment : Fragment) {
+        navigator.getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, fragment)
+                .commitNow()
+    }
 }
