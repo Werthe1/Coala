@@ -38,6 +38,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
+    implementation "androidx.appcompat:appcompat:$appcompatVersion"
 
     //kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
