@@ -1,16 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android = "http://schemas.android.com/apk/res/android"
-    xmlns:tools = "http://schemas.android.com/tools"
+<layout xmlns:android = "http://schemas.android.com/apk/res/android"
     xmlns:app = "http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools"
     >
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width = "match_parent"
         android:layout_height = "match_parent"
+        android:background = "@android:color/white"
         tools:context = ".ui.mypage.MyPageActivity"
         >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id = "@+id/toolbar_mp"
+            android:layout_width = "match_parent"
+            android:layout_height = "?android:actionBarSize"
+            android:background = "@android:color/white"
+            app:title = "@string/toolbar_title_mypage"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id = "@+id/gl_mp_profile_top"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:orientation = "horizontal"
+            app:layout_constraintGuide_percent = "0.28"
+            />
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id = "@+id/img_mp_profile"
+            android:layout_width = "0dp"
+            android:layout_height = "0dp"
+            android:layout_marginTop = "@dimen/activity_top_margin"
+            android:src = "@drawable/profile_default"
+            app:civ_border_color = "@color/colorBorder"
+            app:civ_border_width = "3dp"
+            app:layout_constraintBottom_toBottomOf = "@+id/gl_mp_profile_top"
+            app:layout_constraintDimensionRatio = "1:1"
+            app:layout_constraintEnd_toEndOf = "parent"
+            app:layout_constraintStart_toStartOf = "parent"
+            app:layout_constraintTop_toBottomOf = "@+id/toolbar_mp"
+            />
+
+        <ImageView
+            android:id = "@+id/btn_mp_photo"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:background = "@drawable/bg_round_camera"
+            android:padding = "7dp"
+            android:scaleType = "center"
+            app:layout_constraintBottom_toBottomOf = "@+id/img_mp_profile"
+            app:layout_constraintEnd_toEndOf = "@+id/img_mp_profile"
+            app:layout_constraintHorizontal_bias = "0.9"
+            app:layout_constraintStart_toStartOf = "@+id/img_mp_profile"
+            app:srcCompat = "@drawable/ic_photo_20dp"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id = "@+id/gl_mp_name_top"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:orientation = "horizontal"
+            app:layout_constraintGuide_percent = "0.31"
+            />
+
+        <TextView
+            android:id = "@+id/text_mp_name"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:maxLines = "1"
+            android:textColor = "@color/colorMainBlack"
+            android:textSize = "19sp"
+            android:text="이지윤"
+            android:textStyle = "bold"
+            app:layout_constraintEnd_toEndOf = "parent"
+            app:layout_constraintStart_toStartOf = "parent"
+            app:layout_constraintTop_toBottomOf = "@+id/gl_mp_name_top"
+            tools:text = "이지윤"
+            />
+
+        <!--information -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id = "@+id/gl_mp_rank_top"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:orientation = "horizontal"
+            app:layout_constraintGuide_percent = "0.45"
+            />
+
+        <!--rank-->
+        <TextView
+            android:id = "@+id/text_mp_title_rank"
+            style = "@style/TextMyPageTitle"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_marginStart = "@dimen/activity_content_padding"
+            android:layout_marginEnd = "@dimen/activity_content_padding"
+            android:text = "@string/title_my_rank"
+            app:layout_constraintStart_toStartOf = "parent"
+            app:layout_constraintTop_toBottomOf = "@+id/gl_mp_rank_top"
+            />
+
+        <TextView
+            android:id = "@+id/text_mp_rank"
+            style = "@style/TextMyPageContent"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_marginStart = "@dimen/activity_content_padding"
+            android:layout_marginEnd = "@dimen/activity_content_padding"
+            app:layout_constraintEnd_toEndOf = "parent"
+            app:layout_constraintTop_toBottomOf = "@+id/gl_mp_rank_top"
+            tools:text = "1459위"
+            android:text="@{@string/my_rank(`148675`)}"
+            />
+
+        <View
+            android:layout_width = "0dp"
+            android:layout_height = "1dp"
+            android:background = "@color/colorBorder"
+            app:layout_constraintEnd_toEndOf = "@+id/text_mp_rank"
+            app:layout_constraintStart_toStartOf = "@+id/text_mp_title_rank"
+            app:layout_constraintTop_toBottomOf = "@+id/text_mp_title_rank"
+            />
+
+        <!--coin-->
+        <TextView
+            android:id = "@+id/text_mp_title_coin"
+            style = "@style/TextMyPageTitle"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "@string/title_my_coin"
+            app:layout_constraintStart_toStartOf = "parent"
+            app:layout_constraintTop_toBottomOf = "@+id/text_mp_title_rank"
+            />
+
+        <TextView
+            android:id = "@+id/text_mp_coin"
+            style = "@style/TextMyPageContent"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            app:layout_constraintEnd_toEndOf = "parent"
+            app:layout_constraintTop_toBottomOf = "@+id/text_mp_rank"
+            tools:text = "500원"
+            android:text="@{@string/my_coin(`500`)}"
+            />
+
+        <View
+            android:layout_width = "0dp"
+            android:layout_height = "1dp"
+            android:background = "@color/colorBorder"
+            app:layout_constraintEnd_toEndOf = "@+id/text_mp_rank"
+            app:layout_constraintStart_toStartOf = "@+id/text_mp_title_rank"
+            app:layout_constraintTop_toBottomOf = "@+id/text_mp_title_coin"
+            />
+
+        <!--my q&a-->
+        <TextView
+            android:id = "@+id/text_mp_title_q"
+            style = "@style/TextMyPageTitle"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "@string/title_my_q"
+            app:layout_constraintStart_toStartOf = "parent"
+            app:layout_constraintTop_toBottomOf = "@+id/text_mp_title_coin"
+            />
+
+        <TextView
+            android:id = "@+id/text_mp_q_val"
+            style = "@style/TextMyPageContent"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_marginEnd = "0dp"
+            android:paddingStart = "0dp"
+            android:paddingEnd = "0dp"
+            android:textColor = "@color/colorPrimary"
+            app:layout_constraintEnd_toStartOf = "@+id/text_mp_q"
+            app:layout_constraintTop_toBottomOf = "@+id/text_mp_coin"
+            android:text="@{@string/my_q(3)}"
+            />
+
+        <TextView
+            android:id = "@+id/text_mp_q"
+            style = "@style/TextMyPageContent"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            app:layout_constraintEnd_toEndOf = "parent"
+            app:layout_constraintTop_toBottomOf = "@+id/text_mp_coin"
+            tools:text = "10개"
+            android:text="10개"
+            />
+
+        <View
+            android:layout_width = "0dp"
+            android:layout_height = "1dp"
+            android:background = "@color/colorBorder"
+            app:layout_constraintEnd_toEndOf = "@+id/text_mp_rank"
+            app:layout_constraintStart_toStartOf = "@+id/text_mp_title_rank"
+            app:layout_constraintTop_toBottomOf = "@+id/text_mp_title_q"
+            />
+
+        <TextView
+            android:id = "@+id/text_mp_title_a"
+            style = "@style/TextMyPageTitle"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "@string/title_my_a"
+            app:layout_constraintStart_toStartOf = "parent"
+            app:layout_constraintTop_toBottomOf = "@+id/text_mp_title_q"
+            />
+
+        <TextView
+            android:id = "@+id/text_mp_a_val"
+            style = "@style/TextMyPageContent"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_marginEnd = "0dp"
+            android:paddingStart = "0dp"
+            android:paddingEnd = "0dp"
+            android:textColor = "@color/colorPrimary"
+            app:layout_constraintEnd_toStartOf = "@+id/text_mp_a"
+            app:layout_constraintTop_toBottomOf = "@+id/text_mp_q"
+            android:text="@{@string/my_a(3)}"
+            />
+
+        <TextView
+            android:id = "@+id/text_mp_a"
+            style = "@style/TextMyPageContent"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            app:layout_constraintEnd_toEndOf = "parent"
+            app:layout_constraintTop_toBottomOf = "@+id/text_mp_q"
+            tools:text = "25개"
+            android:text="25개"
+            />
+
+        <View
+            android:layout_width = "0dp"
+            android:layout_height = "1dp"
+            android:background = "@color/colorBorder"
+            app:layout_constraintEnd_toEndOf = "@+id/text_mp_rank"
+            app:layout_constraintStart_toStartOf = "@+id/text_mp_title_rank"
+            app:layout_constraintTop_toBottomOf = "@+id/text_mp_title_a"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
