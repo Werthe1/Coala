@@ -26,6 +26,9 @@ ext {
     rxjavaVersion='2.2.4'
     rxandroidVersion='2.1.0'
     rxkotlinVersion='2.3.0'
+
+    //circle image view
+    circleImageViewVersion='3.2.0'
 }
 
 
