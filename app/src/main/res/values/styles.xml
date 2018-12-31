@@ -8,4 +8,26 @@
         <item name = "colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name = "TextMyPageTitle">
+        <item name = "android:textSize">15sp</item>
+        <item name = "android:textColor">@color/colorMainBlack</item>
+        <item name = "android:layout_marginTop">6dp</item>
+        <item name = "android:paddingTop">7dp</item>
+        <item name = "android:paddingBottom">15dp</item>
+        <item name = "android:paddingStart">6dp</item>
+        <item name = "android:paddingEnd">6dp</item>
+        <item name = "android:layout_marginStart">@dimen/activity_content_padding</item>
+    </style>
+
+    <style name = "TextMyPageContent">
+        <item name = "android:textSize">15sp</item>
+        <item name = "android:textStyle">bold</item>
+        <item name = "android:textColor">@color/colorMainBlack</item>
+        <item name = "android:layout_marginTop">6dp</item>
+        <item name = "android:paddingTop">7dp</item>
+        <item name = "android:paddingBottom">15dp</item>
+        <item name = "android:paddingStart">6dp</item>
+        <item name = "android:paddingEnd">6dp</item>
+        <item name = "android:layout_marginEnd">@dimen/activity_content_padding</item>
+    </style>
 </resources>

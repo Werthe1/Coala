@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import space.jiyun.coala.R
 import space.jiyun.coala.databinding.MypageActivityBinding
+import space.jiyun.coala.util.setupActionBar
 
 class MyPageActivity : AppCompatActivity() {
 
@@ -13,5 +14,11 @@ class MyPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.mypage_activity)
+
+        setupActionBar(R.id.toolbar_mp) {
+            setDisplayShowTitleEnabled(true)
+            setDisplayHomeAsUpEnabled(true)
+            elevation = 3f
+        }
     }
 }

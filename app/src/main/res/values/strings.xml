@@ -5,4 +5,15 @@
     <string name = "title_home">Home</string>
     <string name = "title_question">나의 질문</string>
     <string name = "title_answer">나의 답변</string>
+
+    <!--my page-->
+    <string name = "toolbar_title_mypage">마이 페이지</string>
+    <string name = "title_my_rank">나의 랭킹</string>
+    <string name = "title_my_coin">나의 코인</string>
+    <string name = "title_my_q">나의 질문</string>
+    <string name = "title_my_a">나의 답변</string>
+    <string name = "my_rank">%s 위</string>
+    <string name = "my_coin">%s 원</string>
+    <string name = "my_q">답글 %d개 /</string>
+    <string name = "my_a">채택 %d개 /</string>
 </resources>

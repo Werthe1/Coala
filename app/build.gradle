@@ -59,6 +59,8 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
     implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlinVersion"
 
+    //circle image view
+    implementation "com.mikhaellopez:circularimageview:$circleImageViewVersion"
 
     //test
     testImplementation "junit:junit:$junitVersion"
