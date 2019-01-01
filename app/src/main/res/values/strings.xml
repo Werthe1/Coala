@@ -16,4 +16,9 @@
     <string name = "my_coin">%s 원</string>
     <string name = "my_q">답글 %d개 /</string>
     <string name = "my_a">채택 %d개 /</string>
+
+    <!--write question-->
+    <string name = "toolbar_title_write_q">질문 작성</string>
+
 </resources>
+
