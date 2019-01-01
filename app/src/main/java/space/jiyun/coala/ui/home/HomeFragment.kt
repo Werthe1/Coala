@@ -12,7 +12,6 @@ import space.jiyun.coala.databinding.HomeFragmentBinding
 class HomeFragment : androidx.fragment.app.Fragment() {
 
     private lateinit var binding: HomeFragmentBinding
-
     private lateinit var viewModel: HomeViewModel
 
 
@@ -26,6 +25,7 @@ class HomeFragment : androidx.fragment.app.Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
 
+        binding.viewmodel = viewModel
     }
 
     companion object {
