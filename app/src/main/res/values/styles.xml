@@ -8,9 +8,6 @@
         <item name = "colorAccent">@color/colorAccent</item>
     </style>
     
-    <style name="Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
-    
-    
     <style name = "TextMyPageTitle">
         <item name = "android:textSize">15sp</item>
         <item name = "android:textColor">@color/colorMainBlack</item>
@@ -32,5 +29,23 @@
         <item name = "android:paddingStart">6dp</item>
         <item name = "android:paddingEnd">6dp</item>
         <item name = "android:layout_marginEnd">@dimen/activity_content_padding</item>
+    </style>
+    
+    <style name = "TextWriteTitle">
+        <item name = "android:textColor">@color/colorMainBlack</item>
+        <item name = "android:textSize">13sp</item>
+        <item name = "android:textStyle">bold</item>
+        <item name = "android:layout_marginStart">@dimen/activity_content_padding</item>
+        <item name = "android:paddingTop">15dp</item>
+        <item name = "android:paddingBottom">10dp</item>
+    </style>
+
+    <style name = "ImgWriteDeleteImg">
+        <item name = "android:background">@drawable/bg_round_camera</item>
+        <item name = "android:layout_marginTop">2dp</item>
+        <item name = "android:layout_marginEnd">2dp</item>
+        <item name = "android:padding">2dp</item>
+        <item name = "android:scaleType">center</item>
+        <item name = "srcCompat">@drawable/ic_close_24dp</item>
     </style>
 </resources>
