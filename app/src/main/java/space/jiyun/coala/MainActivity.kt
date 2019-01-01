@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import space.jiyun.coala.databinding.MainActivityBinding
 import space.jiyun.coala.ui.mypage.MyPageActivity
 import space.jiyun.coala.util.setupActionBar
@@ -14,17 +15,16 @@ class MainActivity : AppCompatActivity(), MainNavigator {
 
     private lateinit var binding: MainActivityBinding
 
-    private val mViewModel = MainActViewModel(this)
+    private val mViewModel = MainViewModel(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.main_activity)
 
+        binding = DataBindingUtil.setContentView(this, R.layout.main_activity)
         binding.viewmodel = mViewModel
 
         setupActionBar(R.id.toolbar_main) {
             setDisplayShowTitleEnabled(false)
-            elevation = 4f
         }
     }
 
@@ -43,6 +43,14 @@ class MainActivity : AppCompatActivity(), MainNavigator {
                 }
                 else -> super.onOptionsItemSelected(item)
             }
+
+
+    override fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.container, fragment)
+                .commitNow()
+    }
 
 }
 
