@@ -14,11 +14,6 @@ import space.jiyun.coala.ui.answer.AnswerFragment
 import space.jiyun.coala.ui.home.HomeFragment
 import space.jiyun.coala.ui.question.QuestionFragment
 
-@BindingAdapter("selectedItemPosition")
-fun setSelectedItemPosition(view : BottomNavigationView, @IdRes itemId : Int) {
-    view.selectedItemId = itemId
-}
-
 @BindingMethods(
         BindingMethod(
                 type = BottomNavigationView::class,
@@ -28,33 +23,24 @@ fun setSelectedItemPosition(view : BottomNavigationView, @IdRes itemId : Int) {
 )
 
 
-
-class MainActViewModel(private val navigator: MainNavigator) : ViewModel() {
+class MainViewModel(private val navigator: MainNavigator) : ViewModel() {
 
     fun onNavigationItemClicked(item: MenuItem): Boolean =
             when (item.itemId) {
                 R.id.navigation_myquestion -> {
-                   replaceFragment(QuestionFragment.newInstance())
+                   navigator.replaceFragment(QuestionFragment.newInstance())
                     true
                 }
                 R.id.navigation_home -> {
-                    replaceFragment(HomeFragment.newInstance())
+                    navigator.replaceFragment(HomeFragment.newInstance())
                     true
                 }
                 R.id.navigation_myanswer -> {
-                    replaceFragment(AnswerFragment.newInstance())
+                    navigator.replaceFragment(AnswerFragment.newInstance())
                     true
                 }
                else -> {
                    false
                }
             }
-
-
-    private fun replaceFragment(fragment : Fragment) {
-        navigator.getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.container, fragment)
-                .commitNow()
-    }
 }
