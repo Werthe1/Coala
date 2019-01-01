@@ -18,7 +18,14 @@
     <string name = "my_a">채택 %d개 /</string>
 
     <!--write question-->
-    <string name = "toolbar_title_write_q">질문 작성</string>
+    <string name = "toolbar_title_write_q">질문하기</string>
+    <string name = "hint_title_question">무엇이 궁금한가요? 자세히 입력해주세요.</string>
+    <string name = "title">제목</string>
+    <string name = "add_photo">사진등록</string>
+    <string name = "content">내용</string>
+    <string name = "menu_enroll">등록</string>
+    <string name = "tag">태그</string>
+    <string name = "hint_tag">태그를 추가하세요.</string>
 
 </resources>
 
