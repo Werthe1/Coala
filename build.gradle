@@ -2,7 +2,7 @@
 
 //Define versions in a single place.
 ext {
-    minSdkVersion= 19
+    minSdkVersion= 21
     targetSdkVersion= 28
     compileSdkVersion= 28
     buildToolsVersion='28.0.3'
@@ -29,6 +29,15 @@ ext {
 
     //circle image view
     circleImageViewVersion='3.2.0'
+
+    //tag
+    tagViewVersion='1.1.6'
+
+    //glide
+    glideVersion='4.8.0'
+
+    //ted
+    tedPickerVersion='1.1.0'
 }
 
 
@@ -38,6 +47,7 @@ buildscript {
 
 
     repositories {
+        mavenCentral()
         google()
         jcenter()
     }
