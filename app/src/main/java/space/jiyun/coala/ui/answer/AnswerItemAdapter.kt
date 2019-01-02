@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.subjects.PublishSubject
 import space.jiyun.coala.R
 import space.jiyun.coala.data.Answer
-import space.jiyun.coala.ui.answer.AnswerItemViewHolder
 
 
 class AnswerItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -50,7 +49,7 @@ class AnswerItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
             when (viewType) {
-                0 -> AnsweritemHeaderViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.answer_item_header, parent, false))
+                0 -> AnswerItemHeaderViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.answer_item_header, parent, false))
                 1 -> AnswerItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.answer_item, parent, false))
                 else -> AnswerItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.answer_item, parent, false))
             }
@@ -65,7 +64,7 @@ class AnswerItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 holder.getClickObservable(item).subscribe(clickSubject)
             }
 
-            is AnsweritemHeaderViewHolder -> holder.binding?.position = position
+            is AnswerItemHeaderViewHolder -> holder.binding?.position = position
         }
     }
 

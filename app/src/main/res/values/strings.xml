@@ -27,6 +27,10 @@
     <string name = "tag">태그</string>
     <string name = "hint_tag">태그를 추가하세요.</string>
     
+    <!--home-->
+    <string name = "title_new_question">최근 등록 된 질문</string>
+    <string name = "title_pop_question">인기 질문</string>
+    
     <!--question-->
     <string name = "question_answer">답변 수 %d개</string>
     <string name = "item_like">좋아요 %d개</string>

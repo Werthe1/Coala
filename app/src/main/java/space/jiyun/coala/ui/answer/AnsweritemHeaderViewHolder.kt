@@ -5,7 +5,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import space.jiyun.coala.databinding.AnswerItemHeaderBinding
 
-class AnsweritemHeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class AnswerItemHeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     val binding: AnswerItemHeaderBinding? = DataBindingUtil.bind(itemView)
 
