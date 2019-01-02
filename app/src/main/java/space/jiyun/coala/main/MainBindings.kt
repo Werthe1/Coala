@@ -1,4 +1,4 @@
-package space.jiyun.coala
+package space.jiyun.coala.main
 
 import androidx.annotation.IdRes
 import androidx.databinding.BindingAdapter

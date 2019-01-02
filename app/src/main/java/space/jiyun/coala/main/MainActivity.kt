@@ -1,4 +1,4 @@
-package space.jiyun.coala
+package space.jiyun.coala.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import space.jiyun.coala.R
 import space.jiyun.coala.databinding.MainActivityBinding
 import space.jiyun.coala.ui.mypage.MyPageActivity
 import space.jiyun.coala.util.setupActionBar
