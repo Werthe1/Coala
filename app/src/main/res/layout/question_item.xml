@@ -108,7 +108,7 @@
            android:id = "@+id/text_q_item_like"
            android:layout_width = "wrap_content"
            android:layout_height = "wrap_content"
-           android:text = "@{String.format(@string/question_like, question.like)}"
+           android:text = "@{String.format(@string/item_like, question.like)}"
            android:textColor = "#666666"
            app:layout_constraintBottom_toBottomOf = "parent"
            app:layout_constraintEnd_toEndOf = "parent"
