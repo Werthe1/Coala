@@ -7,5 +7,6 @@
     <color name = "colorBotNavigationSelected">#E8152E</color>
     <color name = "colorBorder">#EEEEEE</color>
     <color name = "colorMainBlack">#191919</color>
-    <color name="colorLightGray">#D0D0D0</color>
+    <color name = "colorLightGray">#D0D0D0</color>
+    <color name = "colorAnswerBg">#DEDCDC</color>
 </resources>

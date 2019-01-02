@@ -26,6 +26,10 @@
     <string name = "menu_enroll">등록</string>
     <string name = "tag">태그</string>
     <string name = "hint_tag">태그를 추가하세요.</string>
+    
+    <!--question-->
+    <string name = "question_answer">답변 수 %d개</string>
+    <string name = "question_like">좋아요 %d개</string>
 
 </resources>
 
