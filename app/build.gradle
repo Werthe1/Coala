@@ -62,6 +62,16 @@ dependencies {
     //circle image view
     implementation "com.mikhaellopez:circularimageview:$circleImageViewVersion"
 
+    //tag
+    implementation "co.lujun:androidtagview:$tagViewVersion"
+
+    //glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
+    //ted
+    implementation "gun0912.ted:tedbottompicker:$tedPickerVersion"
+
     //test
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test:runner:$runnerVersion"

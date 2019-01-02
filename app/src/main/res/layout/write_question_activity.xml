@@ -5,6 +5,10 @@
     >
     
     <data>
+        <import
+            alias = "View"
+            type = "android.view.View"
+            />
         <variable
             name = "viewmodel"
             type = "space.jiyun.coala.ui.writequestion.WriteQuestionViewModel"
@@ -77,14 +81,17 @@
         <!--images-->
         <ImageView
             android:id = "@+id/img_wq_1"
+            uri = "@{viewmodel.imgUri1}"
             android:layout_width = "0dp"
             android:layout_height = "100dp"
-            android:background = "@color/colorLightGray"
+            android:scaleType="centerCrop"
+            android:background="@android:color/darker_gray"
+            android:onClick = "@{() -> viewmodel.onSelectImgClick(1)}"
             app:layout_constraintDimensionRatio = "1:1"
             app:layout_constraintHorizontal_chainStyle = "spread"
             app:layout_constraintStart_toStartOf = "@+id/text_wq_title"
             app:layout_constraintTop_toBottomOf = "@+id/text_wq_img"
-            tools:src = "@mipmap/ic_launcher"
+            tools:src = "@drawable/gallery"
             />
     
         <ImageView
@@ -92,16 +99,21 @@
             style = "@style/ImgWriteDeleteImg"
             android:layout_width = "wrap_content"
             android:layout_height = "wrap_content"
+            android:onClick = "@{() -> viewmodel.onDeleteImgClick(1)}"
             android:scaleType = "center"
+            android:visibility = "@{viewmodel.imgUri1 !=null ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf = "@+id/img_wq_1"
             app:layout_constraintTop_toTopOf = "@+id/img_wq_1"
             />
     
          <ImageView
              android:id = "@+id/img_wq_2"
+             uri = "@{viewmodel.imgUri2}"
              android:layout_width = "0dp"
              android:layout_height = "100dp"
-             android:background = "@color/colorLightGray"
+             android:scaleType="centerCrop"
+             android:background="@android:color/darker_gray"
+             android:onClick = "@{() -> viewmodel.onSelectImgClick(2)}"
              app:layout_constraintDimensionRatio = "1:1"
              app:layout_constraintEnd_toStartOf = "@+id/img_wq_3"
              app:layout_constraintStart_toEndOf = "@+id/img_wq_1"
@@ -113,15 +125,20 @@
             style = "@style/ImgWriteDeleteImg"
             android:layout_width = "wrap_content"
             android:layout_height = "wrap_content"
+            android:onClick = "@{() -> viewmodel.onDeleteImgClick(2)}"
+            android:visibility = "@{viewmodel.imgUri2 !=null ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf = "@+id/img_wq_2"
             app:layout_constraintTop_toTopOf = "@+id/img_wq_2"
             />
     
        <ImageView
            android:id = "@+id/img_wq_3"
+           uri = "@{viewmodel.imgUri3}"
            android:layout_width = "0dp"
            android:layout_height = "100dp"
-           android:background = "@color/colorLightGray"
+           android:scaleType="centerCrop"
+           android:background="@android:color/darker_gray"
+           android:onClick = "@{() -> viewmodel.onSelectImgClick(3)}"
            app:layout_constraintDimensionRatio = "1:1"
            app:layout_constraintEnd_toEndOf = "@+id/edit_wq_title"
            app:layout_constraintStart_toEndOf = "@+id/img_wq_2"
@@ -133,6 +150,8 @@
            style = "@style/ImgWriteDeleteImg"
            android:layout_width = "wrap_content"
            android:layout_height = "wrap_content"
+           android:onClick = "@{() -> viewmodel.onDeleteImgClick(3)}"
+           android:visibility = "@{viewmodel.imgUri3 !=null ? View.VISIBLE : View.GONE}"
            app:layout_constraintEnd_toEndOf = "@+id/img_wq_3"
            app:layout_constraintTop_toTopOf = "@+id/img_wq_3"
            />
@@ -201,9 +220,9 @@
     <co.lujun.androidtagview.TagContainerLayout
         android:id = "@+id/tag_wq"
         setOnTagClickListener = "@{true}"
+        setTags = "@{viewmodel.tags}"
         android:layout_width = "match_parent"
         android:layout_height = "wrap_content"
-        setTags="@{viewmodel.tags}"
         android:layout_marginStart = "@dimen/activity_content_padding"
         android:layout_marginTop = "10dp"
         android:layout_marginEnd = "@dimen/activity_content_padding"
