@@ -29,7 +29,11 @@
     
     <!--question-->
     <string name = "question_answer">답변 수 %d개</string>
-    <string name = "question_like">좋아요 %d개</string>
+    <string name = "item_like">좋아요 %d개</string>
+    
+    <!--answer-->
+    <string name = "title_adopted_answer">채택 된 답변</string>
+     <string name = "title_not_adopted_answer">내가 쓴 답변</string>
 
 </resources>
 

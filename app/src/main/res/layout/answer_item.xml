@@ -6,13 +6,10 @@
 
     <data>
         <variable
-            name = "question"
-            type = "space.jiyun.coala.data.Question"
+            name = "answer"
+            type = "space.jiyun.coala.data.Answer"
             />
-        <variable
-            name = "viewmodel"
-            type = "space.jiyun.coala.ui.question.QuestionItemViewModel"
-            />
+
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +17,7 @@
     android:layout_height = "120dp"
     android:layout_marginTop = "2dp"
     android:layout_marginBottom = "2dp"
-    android:background = "@{question.answer > 0 ? @color/colorAnswerBg : @android:color/white}"
+    android:background = "@android:color/white"
     android:paddingStart = "@dimen/item_horizontal_padding"
     android:paddingTop = "@dimen/item_vertical_padding"
     android:paddingEnd = "@dimen/item_horizontal_padding"
@@ -28,43 +25,35 @@
     >
     
     <ImageView
-        android:id = "@+id/img_q_item_logo"
+        android:id = "@+id/img_a_item_logo"
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
         app:srcCompat = "@drawable/ic_question_48dp"
         />
     
     <TextView
-        android:id = "@+id/text_q_item_title"
+        android:id = "@+id/text_a_item_title"
         android:layout_width = "0dp"
         android:layout_height = "wrap_content"
         android:layout_marginStart = "10dp"
         android:lineSpacingExtra = "4dp"
         android:maxLines = "2"
         android:padding = "2dp"
-        android:text = "@{question.title}"
+        android:text = "@{answer.title}"
         android:textColor = "@color/colorMainBlack"
         android:textSize = "16sp"
-        app:layout_constraintEnd_toStartOf = "@+id/gl_q_item_writer_start"
-        app:layout_constraintStart_toEndOf = "@+id/img_q_item_logo"
+        app:layout_constraintEnd_toStartOf = "@+id/gl_a_item_writer_start"
+        app:layout_constraintStart_toEndOf = "@+id/img_a_item_logo"
         app:layout_constraintTop_toTopOf = "parent"
         tools:text = "코틀린이랑 자바의 주요 차이가 무엇인가요? 알려주세요!!"
         />
-    
-    <ImageView
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        app:layout_constraintEnd_toEndOf = "parent"
-        android:onClick="@{() -> viewmodel.onLikeClick()}"
-        app:layout_constraintTop_toTopOf = "parent"
-        android:src="@{viewmodel.isLike ? @drawable/ic_like_full_24dp : @drawable/ic_like_24dp}"
-        />
+ 
     
     <TextView
-        android:id = "@+id/text_q_item_date"
+        android:id = "@+id/text_a_item_date"
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        android:text = "@{question.date}"
+        android:text = "@{answer.date}"
         android:textColor = "@android:color/darker_gray"
         android:textSize = "13sp"
         app:layout_constraintBottom_toBottomOf = "parent"
@@ -73,7 +62,7 @@
         />
     
     <androidx.constraintlayout.widget.Guideline
-        android:id = "@+id/gl_q_item_writer_start"
+        android:id = "@+id/gl_a_item_writer_start"
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
         android:orientation = "vertical"
@@ -83,32 +72,22 @@
     <TextView
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        android:text = "@{question.writer}"
+        android:text = "@{answer.writer}"
         android:textColor = "@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf = "@+id/text_q_item_answer"
+        app:layout_constraintBottom_toTopOf = "@+id/text_a_item_like"
         app:layout_constraintEnd_toEndOf = "parent"
         app:layout_constraintHorizontal_bias = "1"
-        app:layout_constraintStart_toStartOf = "@+id/gl_q_item_writer_start"
+        app:layout_constraintStart_toStartOf = "@+id/gl_a_item_writer_start"
         tools:text = "이지윤"
         />
     
-       <TextView
-           android:id = "@+id/text_q_item_answer"
-           android:layout_width = "wrap_content"
-           android:layout_height = "wrap_content"
-           android:layout_marginEnd = "10dp"
-           android:text = "@{String.format(@string/question_answer, question.answer)}"
-           android:textColor = "#666666"
-           app:layout_constraintBottom_toBottomOf = "parent"
-           app:layout_constraintEnd_toStartOf = "@+id/text_q_item_like"
-           tools:text = "답변 3개"
-           />
+     
     
        <TextView
-           android:id = "@+id/text_q_item_like"
+           android:id = "@+id/text_a_item_like"
            android:layout_width = "wrap_content"
            android:layout_height = "wrap_content"
-           android:text = "@{String.format(@string/item_like, question.like)}"
+           android:text = "@{String.format(@string/item_like, answer.like)}"
            android:textColor = "#666666"
            app:layout_constraintBottom_toBottomOf = "parent"
            app:layout_constraintEnd_toEndOf = "parent"

@@ -21,7 +21,7 @@ class QuestionFragment : androidx.fragment.app.Fragment() {
     private lateinit var binding: QuestionFragmentBinding
 
     private lateinit var viewModel: QuestionViewModel
-    val adapter = QuestionItemAdapter()
+    private val mAdapter = QuestionItemAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.question_fragment, container, false)
@@ -46,7 +46,7 @@ class QuestionFragment : androidx.fragment.app.Fragment() {
             setHasFixedSize(true)
 
             layoutManager = LinearLayoutManager(this@QuestionFragment.context)
-            adapter = this@QuestionFragment.adapter.apply {
+            adapter = this@QuestionFragment.mAdapter.apply {
                 for (i in 1..10) {
                     addItem(Question(1, "코틀린은 왜 코틀린 인가요?? 자바는 왜 자바인가요?? 알고싶다", "이지윤", "dd", Date(), i%3, true , 3))
                 }

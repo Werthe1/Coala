@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools"
+    >
+ 
+ <data>
+  <variable
+      name = "position"
+      type = "int"
+      />
+ </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width = "match_parent"
+    android:layout_height = "wrap_content"
+    >
+ <TextView
+     android:id = "@+id/text_answer_adopted"
+     android:layout_width = "0dp"
+     android:layout_height = "wrap_content"
+     android:paddingStart = "@dimen/item_horizontal_padding"
+     android:paddingTop = "@dimen/activity_content_padding"
+     android:paddingEnd = "@dimen/item_horizontal_padding"
+     android:paddingBottom = "@dimen/activity_content_padding"
+     android:text = "@{position == 0 ? @string/title_adopted_answer : @string/title_not_adopted_answer}"
+     android:textColor = "@color/colorPrimaryDark"
+     android:textSize = "15sp"
+     android:textStyle = "bold"
+     app:layout_constraintEnd_toEndOf = "parent"
+     app:layout_constraintStart_toStartOf = "parent"
+     app:layout_constraintTop_toTopOf = "parent"
+     />
+ </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
