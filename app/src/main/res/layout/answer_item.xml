@@ -28,7 +28,7 @@
         android:id = "@+id/img_a_item_logo"
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        app:srcCompat = "@drawable/ic_question_48dp"
+        app:srcCompat = "@drawable/ic_information_48dp"
         />
     
     <TextView
@@ -38,7 +38,6 @@
         android:layout_marginStart = "10dp"
         android:lineSpacingExtra = "4dp"
         android:maxLines = "2"
-        android:padding = "2dp"
         android:text = "@{answer.title}"
         android:textColor = "@color/colorMainBlack"
         android:textSize = "16sp"

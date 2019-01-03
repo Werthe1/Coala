@@ -32,7 +32,7 @@
     <string name = "title_pop_question">인기 질문</string>
     
     <!--question-->
-    <string name = "question_answer">답변 수 %d개</string>
+    <string name = "question_answer">답변 %d개</string>
     <string name = "item_like">좋아요 %d개</string>
     
     <!--answer-->
