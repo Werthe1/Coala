@@ -14,10 +14,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.request.RequestOptions
 import gun0912.tedbottompicker.TedBottomPicker
+import io.realm.Realm
+import io.realm.RealmList
+import io.realm.kotlin.createObject
+import io.realm.kotlin.where
 import space.jiyun.coala.R
+import space.jiyun.coala.data.Question
+import space.jiyun.coala.data.Tag
+import space.jiyun.coala.data.User
 import space.jiyun.coala.databinding.WriteQuestionActivityBinding
 import space.jiyun.coala.util.GlideApp
 import space.jiyun.coala.util.setupActionBar
+import java.util.*
 
 class WriteQuestionActivity : AppCompatActivity(), WriteQuestionNavigator {
 
@@ -25,6 +33,7 @@ class WriteQuestionActivity : AppCompatActivity(), WriteQuestionNavigator {
     private lateinit var viewModel: WriteQuestionViewModel
 
     private val storagePermissionCode = 1
+    private val realm = Realm.getDefaultInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,6 +99,25 @@ class WriteQuestionActivity : AppCompatActivity(), WriteQuestionNavigator {
         }
     }
 
+    private fun createQuestion() {
+        realm.executeTransaction { r ->
+            val question  = r.createObject<Question>(UUID.randomUUID().toString())
+
+            with(question) {
+                writer = "이지윤"
+                title = binding.editWqTitle.text.toString()
+                content = binding.editWqContent.text.toString()
+                date = Date()
+
+                for(item in binding.tagWq.tags.iterator()) {
+                    val tag = r.createObject<Tag>()
+                    tag.name = item
+                    this.tags.add(tag)
+                }
+            }
+        }
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu_write, menu)
@@ -100,6 +128,7 @@ class WriteQuestionActivity : AppCompatActivity(), WriteQuestionNavigator {
     override fun onOptionsItemSelected(item: MenuItem): Boolean =
             when (item.itemId) {
                 R.id.menu_enroll -> {
+                    createQuestion()
                     finish()
                     true
                 }
@@ -115,4 +144,9 @@ class WriteQuestionActivity : AppCompatActivity(), WriteQuestionNavigator {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+
+        realm.close()
+    }
 }
