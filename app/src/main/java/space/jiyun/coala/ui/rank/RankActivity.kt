@@ -65,6 +65,7 @@ class RankActivity : AppCompatActivity() {
                         setMessage(String.format(getString(R.string.msg_rank), it.rank, it.name))
                         setPositiveButton(R.string.alert_yes){ _, _ ->
                             startActivity(Intent(this@RankActivity, WriteQuestionActivity::class.java))
+                            finish()
                         }
                         create()
                     }.show()
