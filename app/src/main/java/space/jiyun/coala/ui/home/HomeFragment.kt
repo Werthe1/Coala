@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import io.realm.Realm
 import io.realm.Sort
@@ -13,6 +14,7 @@ import space.jiyun.coala.R
 import space.jiyun.coala.data.Question
 import space.jiyun.coala.data.addUser
 import space.jiyun.coala.databinding.HomeFragmentBinding
+import space.jiyun.coala.util.setupActionBar
 import java.util.*
 
 class HomeFragment : androidx.fragment.app.Fragment() {
@@ -34,9 +36,12 @@ class HomeFragment : androidx.fragment.app.Fragment() {
 
         binding.viewmodel = viewModel
 
+        (activity as AppCompatActivity).setupActionBar(R.id.toolbar_main) {
+            title = getString(R.string.title_home)
+        }
+
         setUpRecyclerView()
     }
-
 
     private fun setUpRecyclerView() {
         with(binding.recyclerHome) {
