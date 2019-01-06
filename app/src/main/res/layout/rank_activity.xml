@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+	xmlns:android = "http://schemas.android.com/apk/res/android"
+	xmlns:app = "http://schemas.android.com/apk/res-auto"
+	xmlns:tools = "http://schemas.android.com/tools"
+	>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+	android:layout_width = "match_parent"
+	android:layout_height = "match_parent"
+	tools:context = ".ui.rank.RankActivity"
+	>
+
+	<com.google.android.material.appbar.AppBarLayout
+		android:id = "@+id/container_rank"
+		android:layout_width = "match_parent"
+		android:layout_height = "0dp"
+		android:background = "@drawable/rank_anim"
+		app:layout_constraintBottom_toTopOf = "@+id/gl_rank_rv_top"
+		app:layout_constraintTop_toTopOf = "parent"
+		>
+
+	<androidx.appcompat.widget.Toolbar
+		android:id = "@+id/toolbar_rank"
+		app:contentInsetStartWithNavigation="0dp"
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content"
+		android:layout_marginTop = "15dp"
+		android:minHeight = "?android:actionBarSize"
+		app:layout_constraintTop_toTopOf = "parent"
+		app:popupTheme = "@style/ThemeOverlay.AppCompat.Light"
+		app:title = "@string/title_rank"
+		app:titleTextAppearance = "@style/ToolbarRankTitle"
+		/>
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width = "match_parent"
+			android:layout_height = "match_parent"
+			>
+		<com.mikhaellopez.circularimageview.CircularImageView
+			android:id = "@+id/img_rank_2"
+			android:layout_width = "75dp"
+			android:layout_height = "75dp"
+			android:layout_marginStart = "@dimen/item_vertical_padding"
+			android:src = "@drawable/photo2"
+			app:civ_border_width = "0dp"
+			app:layout_constraintBottom_toBottomOf = "parent"
+			app:layout_constraintEnd_toStartOf = "@+id/img_rank_1"
+			app:layout_constraintHorizontal_chainStyle = "spread"
+			app:layout_constraintStart_toStartOf = "parent"
+			app:layout_constraintTop_toTopOf = "parent"
+			app:layout_constraintVertical_bias = "0.45"
+			/>
+
+		<TextView
+			android:id = "@+id/text_rank_2"
+			style = "@style/TextRankTopThree"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "김혜리"
+			android:textSize = "14sp"
+			app:layout_constraintEnd_toEndOf = "@+id/img_rank_2"
+			app:layout_constraintStart_toStartOf = "@+id/img_rank_2"
+			app:layout_constraintTop_toBottomOf = "@+id/img_rank_2"
+			/>
+
+			<ImageView
+				android:layout_width = "wrap_content"
+				android:layout_height = "wrap_content"
+				app:layout_constraintStart_toStartOf = "@+id/img_rank_2"
+				app:layout_constraintTop_toTopOf = "@+id/img_rank_2"
+				app:srcCompat = "@drawable/ic_second_24dp"
+				/>
+
+		<com.mikhaellopez.circularimageview.CircularImageView
+			android:id = "@+id/img_rank_1"
+			android:layout_width = "95dp"
+			android:layout_height = "95dp"
+			android:layout_marginStart = "@dimen/item_vertical_padding"
+			android:src = "@drawable/photo3"
+			app:civ_border_width = "0dp"
+			app:layout_constraintBottom_toBottomOf = "parent"
+			app:layout_constraintEnd_toStartOf = "@+id/img_rank_3"
+			app:layout_constraintStart_toEndOf = "@+id/img_rank_2"
+			app:layout_constraintTop_toTopOf = "parent"
+			app:layout_constraintVertical_bias = "0.23"
+			/>
+
+		<TextView
+			android:id = "@+id/text_rank_1"
+			style = "@style/TextRankTopThree"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "징뉴"
+			android:textSize = "15sp"
+			app:layout_constraintEnd_toEndOf = "@+id/img_rank_1"
+			app:layout_constraintStart_toStartOf = "@+id/img_rank_1"
+			app:layout_constraintTop_toBottomOf = "@+id/img_rank_1"
+			/>
+
+		<ImageView
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			app:layout_constraintStart_toStartOf = "@+id/img_rank_1"
+			app:layout_constraintTop_toTopOf = "@+id/img_rank_1"
+			app:srcCompat = "@drawable/ic_first_30dp"
+			/>
+
+		<com.mikhaellopez.circularimageview.CircularImageView
+			android:id = "@+id/img_rank_3"
+			android:layout_width = "75dp"
+			android:layout_height = "75dp"
+			android:layout_marginStart = "@dimen/item_vertical_padding"
+			android:src = "@drawable/photo1"
+			app:civ_border_width = "0dp"
+			app:layout_constraintBottom_toBottomOf = "parent"
+			app:layout_constraintEnd_toEndOf = "parent"
+			app:layout_constraintHorizontal_chainStyle = "spread"
+			app:layout_constraintStart_toEndOf = "@+id/img_rank_1"
+			app:layout_constraintTop_toTopOf = "parent"
+			app:layout_constraintVertical_bias = "0.45"
+			/>
+
+		<TextView
+			android:id = "@+id/text_rank_3"
+			style = "@style/TextRankTopThree"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "자바를 잡자"
+			android:textSize = "14sp"
+			app:layout_constraintEnd_toEndOf = "@+id/img_rank_3"
+			app:layout_constraintStart_toStartOf = "@+id/img_rank_3"
+			app:layout_constraintTop_toBottomOf = "@+id/img_rank_3"
+			/>
+
+			<ImageView
+				android:layout_width = "wrap_content"
+				android:layout_height = "wrap_content"
+				app:layout_constraintStart_toStartOf = "@+id/img_rank_3"
+				app:layout_constraintTop_toTopOf = "@+id/img_rank_3"
+				app:srcCompat = "@drawable/ic_third_20dp"
+				/>
+		</androidx.constraintlayout.widget.ConstraintLayout>
+	</com.google.android.material.appbar.AppBarLayout>
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id = "@+id/gl_rank_rv_top"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:orientation = "horizontal"
+		app:layout_constraintGuide_percent = "0.35"
+		/>
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id = "@+id/recycler_rank"
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content"
+		app:layout_constraintTop_toBottomOf = "@+id/gl_rank_rv_top"
+		tools:items = "@layout/rank_item"
+		/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
