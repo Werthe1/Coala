@@ -1,48 +1,30 @@
 package space.jiyun.coala.ui.home
 
+import android.app.Application
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.subjects.PublishSubject
+import io.realm.OrderedRealmCollection
+import io.realm.RealmRecyclerViewAdapter
 import space.jiyun.coala.R
+import space.jiyun.coala.data.Answer
 import space.jiyun.coala.data.Question
 import space.jiyun.coala.ui.answer.AnswerItemHeaderViewHolder
 
-class HomeItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class HomeItemAdapter(val dataSet: OrderedRealmCollection<Question>, autoUpdate: Boolean)
+    : RealmRecyclerViewAdapter<Question, RecyclerView.ViewHolder>(dataSet, autoUpdate) {
 
-    private val dataSet = mutableListOf<Question>()
     val clickSubject = PublishSubject.create<Question>()
 
     private val headerView = 0
     private val contentView = 1
 
-    fun updateItems(items: MutableList<Question>) {
-        with(dataSet) {
-            clear()
-            addAll(items)
-            sortBy { it -> it.like }
-        }
-
-        notifyItemRangeInserted(0, items.size)
-    }
-
-    fun addItem(item: Question) {
-        with(dataSet) {
-            add(item)
-            sortBy { it -> it.like }
-        }
-
-        notifyItemInserted(dataSet.size - 1)
-    }
-
-    override fun getItemViewType(position: Int): Int {
-        val item = dataSet[position]
-
-        return when(position) {
+    override fun getItemViewType(position: Int): Int =
+        when (position) {
             0 -> 0
             5 -> 0
             else -> 1
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =

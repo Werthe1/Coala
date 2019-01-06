@@ -4,36 +4,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.subjects.PublishSubject
+import io.realm.OrderedRealmCollection
+import io.realm.RealmRecyclerViewAdapter
 import space.jiyun.coala.R
 import space.jiyun.coala.data.Answer
 
 
-class AnswerItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class AnswerItemAdapter(val dataSet: OrderedRealmCollection<Answer>, autoUpdate: Boolean)
+    : RealmRecyclerViewAdapter<Answer, RecyclerView.ViewHolder>(dataSet, autoUpdate) {
 
-    private val dataSet = mutableListOf<Answer>()
     val clickSubject = PublishSubject.create<Answer>()
 
     private val headerView = 0
     private val contentView = 1
 
-    fun updateItems(items: MutableList<Answer>) {
-        with(dataSet) {
-            clear()
-            addAll(items)
-            sortBy { it -> it.isAdopted }
-        }
-
-        notifyItemRangeInserted(0, items.size)
-    }
-
-    fun addItem(item: Answer) {
-        with(dataSet) {
-            add(item)
-            sortBy { it -> it.isAdopted }
-        }
-
-        notifyItemInserted(dataSet.size - 1)
-    }
 
     override fun getItemViewType(position: Int): Int {
         val item = dataSet[position]
