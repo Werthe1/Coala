@@ -26,18 +26,24 @@
     <string name = "menu_enroll">등록</string>
     <string name = "tag">태그</string>
     <string name = "hint_tag">태그를 추가하세요.</string>
-    
+
     <!--home-->
     <string name = "title_new_question">최근 등록 된 질문</string>
     <string name = "title_pop_question">인기 질문</string>
-    
+
     <!--question-->
     <string name = "question_answer">답변 %d개</string>
     <string name = "item_like">좋아요 %d개</string>
-    
+
     <!--answer-->
     <string name = "title_adopted_answer">채택 된 답변</string>
      <string name = "title_not_adopted_answer">내가 쓴 답변</string>
+
+    <!--rank-->
+    <string name = "title_rank">랭킹</string>
+    <string name = "msg_rank">랭킹 %d위 %s 님에게 질문하러 갈까요?</string>
+    <string name = "alert_yes">예</string>
+    <string name = "alert_cancel">취소</string>
 
 </resources>
 
