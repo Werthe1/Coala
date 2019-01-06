@@ -38,7 +38,7 @@ class AnswerFragment : androidx.fragment.app.Fragment() {
         viewModel = ViewModelProviders.of(this).get(AnswerViewModel::class.java)
 
         (activity as AppCompatActivity).setupActionBar(R.id.toolbar_main) {
-            title = getString(R.string.title_my_a)
+            title = getString(R.string.title_answer)
         }
 
         setUpRecyclerView()
