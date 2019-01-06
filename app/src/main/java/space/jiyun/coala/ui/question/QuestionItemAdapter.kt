@@ -3,33 +3,22 @@ package space.jiyun.coala.ui.question
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+
 import io.reactivex.subjects.PublishSubject
+import io.realm.OrderedRealmCollection
+import io.realm.RealmRecyclerViewAdapter
 import space.jiyun.coala.R
 import space.jiyun.coala.data.Question
 
-class QuestionItemAdapter : RecyclerView.Adapter<QuestionItemViewHolder>() {
+class QuestionItemAdapter(val dataSet: OrderedRealmCollection<Question>, autoUpdate: Boolean)
+    : RealmRecyclerViewAdapter<Question, QuestionItemViewHolder>(dataSet, autoUpdate) {
 
-    private val dataSet = mutableListOf<Question>()
     val clickSubject = PublishSubject.create<Question>()
 
 
-    fun updateItems(items : MutableList<Question>) {
-        with(dataSet) {
-            clear()
-            addAll(items)
-        }
 
-        notifyItemRangeInserted(0, items.size)
-    }
 
-    fun addItem(item : Question) {
-        dataSet.add(item)
-
-        notifyItemInserted(dataSet.size-1)
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionItemViewHolder=
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionItemViewHolder =
             QuestionItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.question_item, parent, false))
 
 
@@ -46,5 +35,5 @@ class QuestionItemAdapter : RecyclerView.Adapter<QuestionItemViewHolder>() {
     }
 
 
-    override fun getItemCount(): Int =dataSet.size
+    override fun getItemCount(): Int = dataSet.size
 }
