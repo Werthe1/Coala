@@ -8,8 +8,10 @@ import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import space.jiyun.coala.R
+import space.jiyun.coala.data.addUser
 import space.jiyun.coala.databinding.MainActivityBinding
 import space.jiyun.coala.ui.mypage.MyPageActivity
+import space.jiyun.coala.ui.rank.RankActivity
 import space.jiyun.coala.util.setupActionBar
 
 class MainActivity : AppCompatActivity(), MainNavigator {
@@ -40,6 +42,10 @@ class MainActivity : AppCompatActivity(), MainNavigator {
             when (item.itemId) {
                 R.id.menu_mypage -> {
                     startActivity(Intent(this, MyPageActivity::class.java))
+                    true
+                }
+                R.id.menu_rank -> {
+                    startActivity(Intent(this, RankActivity::class.java))
                     true
                 }
                 else -> super.onOptionsItemSelected(item)

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+	xmlns:android = "http://schemas.android.com/apk/res/android"
+	xmlns:app = "http://schemas.android.com/apk/res-auto"
+	xmlns:tools = "http://schemas.android.com/tools"
+	>
+
+	<data>
+		<variable
+			name = "user"
+			type = "space.jiyun.coala.data.User"/>
+	</data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+	android:layout_width = "match_parent"
+	android:layout_height = "60dp"
+	android:background="@color/colorBorder"
+	android:orientation = "vertical"
+	android:padding = "@dimen/item_vertical_padding"
+	>
+
+	<TextView
+		android:id = "@+id/text_item_rank_num"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:text="@{String.valueOf(user.rank)}"
+		android:textColor = "@android:color/darker_gray"
+		android:textSize = "13sp"
+		app:layout_constraintBottom_toBottomOf = "parent"
+		app:layout_constraintTop_toTopOf = "parent"
+		tools:text = "12345"
+		/>
+
+	<androidx.constraintlayout.widget.Guideline
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:id="@+id/gl_rank_item_profile"
+		android:orientation="vertical"
+		app:layout_constraintGuide_percent="0.07"
+		/>
+
+	<com.mikhaellopez.circularimageview.CircularImageView
+		android:id = "@+id/img_item_rank_profile"
+		android:layout_width = "35dp"
+		android:layout_height = "35dp"
+		app:civ_border_width="0dp"
+		android:src = "@mipmap/ic_launcher"
+		app:layout_constraintBottom_toBottomOf = "parent"
+		app:layout_constraintStart_toEndOf ="@+id/gl_rank_item_profile"
+		app:layout_constraintTop_toTopOf = "parent"
+		/>
+
+	<TextView
+		android:id = "@+id/text_item_rank_name"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_marginStart = "@dimen/item_vertical_padding"
+		android:textColor = "@color/colorMainBlack"
+		android:textSize = "14sp"
+		app:layout_constraintBottom_toBottomOf = "parent"
+		app:layout_constraintStart_toEndOf = "@+id/img_item_rank_profile"
+		app:layout_constraintTop_toTopOf = "parent"
+		android:text="@{user.name}"
+		tools:text = "이지윤"
+		/>
+
+	<TextView
+		android:id = "@+id/text_item_rank_coin"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:textColor = "@color/colorMainBlack"
+		android:textSize = "12sp"
+		android:text="@{@string/my_coin(user.coin)}"
+		app:layout_constraintBottom_toBottomOf = "parent"
+		app:layout_constraintEnd_toEndOf = "parent"
+		app:layout_constraintTop_toTopOf = "parent"
+		tools:text = "201,212원"
+		/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
