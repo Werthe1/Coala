@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import io.realm.Realm
+import io.realm.Sort
+import io.realm.kotlin.where
 import space.jiyun.coala.R
 import space.jiyun.coala.data.Question
 import space.jiyun.coala.databinding.QuestionFragmentBinding
@@ -21,7 +24,8 @@ class QuestionFragment : androidx.fragment.app.Fragment() {
     private lateinit var binding: QuestionFragmentBinding
 
     private lateinit var viewModel: QuestionViewModel
-    private val mAdapter = QuestionItemAdapter()
+
+    private val realm = Realm.getDefaultInstance()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.question_fragment, container, false)
@@ -46,12 +50,15 @@ class QuestionFragment : androidx.fragment.app.Fragment() {
             setHasFixedSize(true)
 
             layoutManager = LinearLayoutManager(this@QuestionFragment.context)
-            adapter = this@QuestionFragment.mAdapter.apply {
-                for (i in 1..10) {
-                    addItem(Question(1, "코틀린은 왜 코틀린 인가요?? 자바는 왜 자바인가요?? 알고싶다", "이지윤", "dd", Date(), i%3, true , 3))
-                }
-            }
+            adapter = QuestionItemAdapter(
+                realm.where<Question>().findAll().sort(Question::date.name, Sort.DESCENDING), true)
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        realm.close()
     }
 
     companion object {
